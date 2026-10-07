@@ -1,14 +1,20 @@
 # foldertidy 🗂️✨
 
-**Clean up your messy Downloads folder in seconds — safely, offline, with one command.**
+**EN | Clean up your messy Downloads folder in seconds — safely, offline, with one command.**
+**TR | Dağınık İndirilenler klasörünüzü saniyeler içinde, güvenle ve çevrimdışı temizler.**
 
 Sorts files into `Pictures / Videos / Documents / Music / Archives / Programs / ...`
 and finds duplicate files. **Nothing is deleted, ever** — duplicates go to a
 `_duplicates` folder. **Dry-run by default** — you see the plan before anything moves.
 
+Dosyaları `Pictures / Videos / Documents / Music / Archives / Programs / ...`
+klasörlerine ayırır ve kopya (duplicate) dosyaları bulur. **Hiçbir şey asla silinmez** —
+kopyalar `_duplicates` klasörüne taşınır. **Varsayılan kuru çalışma (dry-run)** — bir şey
+taşınmadan önce planı görürsünüz.
+
 ```bash
-python foldertidy.py                 # preview what would happen in ~/Downloads
-python foldertidy.py --apply         # actually organize it
+python foldertidy.py                 # EN: preview ~/Downloads | TR: İndirilenler önizleme
+python foldertidy.py --apply         # EN: actually organize | TR: gerçekten düzenle
 python foldertidy.py ./Photos --by-month --apply
 python foldertidy.py ./Messy --dedupe --apply
 ```
@@ -25,7 +31,9 @@ python foldertidy.py ./Messy --dedupe --apply
 
 ---
 
-## Why?
+## 🇬🇧 English
+
+### Why?
 
 "I have 3,000 files in Downloads and I'm scared to touch it" — the most human
 situation on Earth. Existing tools are paid, bloated, or want cloud access.
@@ -33,7 +41,7 @@ situation on Earth. Existing tools are paid, bloated, or want cloud access.
 `foldertidy` is one Python file. No install, no account, no upload. It only
 **moves** files into clear folders and never deletes anything.
 
-## Safety first
+### Safety first
 
 | Guarantee | How |
 |---|---|
@@ -44,7 +52,7 @@ situation on Earth. Existing tools are paid, bloated, or want cloud access.
 | No name collisions | Auto-renames to `file (2).ext` instead of overwriting |
 | Oldest copy wins | Duplicate groups keep the oldest file |
 
-## Install
+### Install
 
 Python 3.9+ — that's all:
 
@@ -54,7 +62,7 @@ curl -LO https://raw.githubusercontent.com/Volvox6767/foldertidy/main/foldertidy
 
 Single file, zero dependencies, works offline.
 
-## Usage
+### Usage
 
 ```
 python foldertidy.py [FOLDER] [--apply] [--by-month] [--by-date] [--dedupe]
@@ -78,7 +86,7 @@ python foldertidy.py ./Desktop --dedupe --apply   # clear duplicate clutter
 Categories: Pictures, Videos, Documents, Music, Archives, Programs, Code,
 Fonts, Torrents, Others — 100+ extensions recognized.
 
-## FAQ
+### FAQ
 
 **Can it delete my files?** No. It only moves. `--apply` + `_duplicates/` folder. Delete that folder yourself when you're sure.
 
@@ -88,7 +96,73 @@ Fonts, Torrents, Others — 100+ extensions recognized.
 
 ---
 
+## 🇹🇷 Türkçe
+
+### Neden?
+
+"İndirilenler'de 3.000 dosya var, dokunmaya korkuyorum" — dünyanın en insani
+durumu. Mevcut araçlar ya ücretli, ya şişkin, ya da bulut erişimi istiyor.
+
+`foldertidy` tek bir Python dosyasıdır. Kurulum yok, hesap yok, yükleme yok.
+Yalnızca dosyaları anlaşılır klasörlere **taşır** ve hiçbir şeyi silmez.
+
+### Önce güvenlik
+
+| Garanti | Nasıl? |
+|---|---|
+| Asla silmez | Kopyalar `_duplicates/` klasörüne *taşınır* (aynı göreli yol) |
+| Önce önizleme | Varsayılan dry-run; uygulamak için `--apply` |
+| Yarım indirmelere dokunmaz | `.crdownload .part .tmp .download` dosyaları atlanır |
+| Sistem/gizli klasörlere dokunmaz | `.git`, `node_modules`, `__pycache__` olduğu gibi kalır |
+| İsim çakışması yok | Üzerine yazmak yerine `dosya (2).ext` olarak yeniden adlandırır |
+| En eski kopya kalır | Kopya gruplarında en eski dosya yerinde tutulur |
+
+### Kurulum
+
+Python 3.9+ — hepsi bu:
+
+```bash
+curl -LO https://raw.githubusercontent.com/Volvox6767/foldertidy/main/foldertidy.py
+```
+
+Tek dosya, sıfır bağımlılık, çevrimdışı çalışır.
+
+### Kullanım
+
+```
+python foldertidy.py [KLASÖR] [--apply] [--by-month] [--by-date] [--dedupe]
+
+KLASÖR        düzenlenecek klasör (varsayılan: ~/Downloads)
+--apply       dosyaları gerçekten taşı (varsayılan: sadece önizleme)
+--by-month    Pictures ayrıca YYYY-MM alt klasörlerine ayrılır
+--by-date     TÜM dosyalar YYYY-MM-DD alt klasörlerine ayrılır
+--dedupe      kopyaları bulur → _duplicates/ klasörüne taşır
+```
+
+Örnekler:
+
+```bash
+python foldertidy.py                              # Downloads önizleme
+python foldertidy.py --apply                      # Downloads'ı düzenle
+python foldertidy.py D:\Kamera --by-month --apply # fotoğraflar aylara göre
+python foldertidy.py ./Masaüstü --dedupe --apply  # kopya kalabalığını temizle
+```
+
+Kategoriler: Pictures, Videos, Documents, Music, Archives, Programs, Code,
+Fonts, Torrents, Others — 100+ uzantı tanınır.
+
+### SSS
+
+**Dosyalarımı silebilir mi?** Hayır. Sadece taşır. `--apply` + `_duplicates/` klasörü. Emin olduğunuzda o klasörü kendiniz silebilirsiniz.
+
+**Verilerim bir yere gönderiliyor mu?** Hayır. %100 çevrimdışı.
+
+**Uzantısı olmayan dosyalar?** Yerinde bırakılır — tedbiri elden bırakmamak gerek.
+
+---
+
 Made with ❤ by **Ahmet Gedik** — [instagram.com/ahmetgedik67](https://www.instagram.com/ahmetgedik67)
 Follow on Instagram for more free everyday tools.
+Daha fazla ücretsiz günlük araç için Instagram'da takip edin.
 
-License: [MIT](LICENSE)
+License / Lisans: [MIT](LICENSE)
