@@ -1,7 +1,7 @@
 # foldertidy 🗂️✨
 
 **EN | Clean up your messy Downloads folder in seconds — safely, offline, with one command.**
-**TR | Dağınık İndirilenler klasörünüzü saniyeler içinde, güvenle ve çevrimdışı temizler.**
+**TR | KlasörDüzenci — Dağınık İndirilenler klasörünüzü saniyeler içinde, güvenle ve çevrimdışı temizler.**
 
 Sorts files into `Pictures / Videos / Documents / Music / Archives / Programs / ...`
 and finds duplicate files. **Nothing is deleted, ever** — duplicates go to a
